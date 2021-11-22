@@ -30,17 +30,21 @@ Product.init(
       }
     },
     // define a stock column
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 10,
-    validate: {
-      isNumeric: true
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true
+      }
     },
     // define a category_id column
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'category',
-      key: 'id'
+    categoy_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
     }
   },
   {
