@@ -37,8 +37,13 @@ THEN I am able to successfully create, update, and delete data in my database
 ```
 
 ### Installation
+The user should should first clone the respository from GitHub, then initialize the dependencies for Node.js, Express.js, and Sequelize:
+- npm install
+- npm install express sequelize mysql2
+
 
 ### Usage
+To connect to the database, run mysql -u root -p in the commandline and enter the password from the .env file.  The user will then need to source the schema.sql, source db/source.sql.  Then seed the file, npm run seed.  Finally to connect the server, type in the commandline npm run start
 ![gif](e-commerce-back-end-video.gif)
 
 ### License
