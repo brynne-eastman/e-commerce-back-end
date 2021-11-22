@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-  .then(dbCategoryData => res.json(dbCategoryData))
+  .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err)
@@ -24,7 +24,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-  Product.findOne({
+  Tag.findOne({
+    where: {
+      id: req.params.id
+    },
     include: [
       {
         model: Product,
@@ -32,7 +35,7 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-  .then(dbCategoryData => res.json(dbCategoryData))
+  .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err)
@@ -44,7 +47,7 @@ router.post('/', (req, res) => {
   Tag.create({
     tag_name: req.body.tag_name
   })
-  .then(dbCategoryData => res.json(dbCategoryData))
+  .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -58,12 +61,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbCategoryData => {
-    if (!dbCategoryData[0]) {
+  .then(dbTagData => {
+    if (!dbTagData[0]) {
       res.status(404).json({ message: 'No tag found with this id'});
       return;
     }
-    res.json(dbCategoryData);
+    res.json(dbTagData);
   })
   .catch(err => {
     console.log(err);
@@ -78,12 +81,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbCategoryData => {
-    if (!dbCategoryData) {
-      res.status(404).json({ message: 'No category found with this id' });
+  .then(dbTagData => {
+    if (!dbTagData) {
+      res.status(404).json({ message: 'No tag found with this id' });
       return;
     }
-    res.json(dbCategoryData);
+    res.json(dbTagData);
   })
   .catch(err => {
     console.log(err);
