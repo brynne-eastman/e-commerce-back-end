@@ -44,7 +44,8 @@ The user should should first clone the respository from GitHub, then initialize 
 
 ### Usage
 To connect to the database, run mysql -u root -p in the commandline and enter the password from the .env file.  The user will then need to source the schema.sql, source db/source.sql.  Then seed the file, npm run seed.  Finally to connect the server, type in the commandline npm run start
-![gif](e-commerce-back-end-video.gif)
+
+View video to see MySQL walk through via [Screencastify](https://drive.google.com/file/d/1D1AQZGKNrY76X3NLQh51RFz4xIkVvyUD/view)<br>
 
 ### License
 MIT
